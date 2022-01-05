@@ -1,0 +1,16 @@
+.formulario {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+ .formulario-centro {
+    text-align: center;
+}
+.formulario-adicionar {
+    text-align: center;
+}
+.formulario div {
+    width: 100%;
+}
