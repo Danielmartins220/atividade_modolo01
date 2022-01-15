@@ -3,42 +3,84 @@
     <head>
         <title>Controle financeiro</title>
         <meta charset="utf-8">
-        <link rel="img" href="./img/logo01.png" />
         <link rel="stylesheet" href="./css/style.css" />
-        <link rel="css" href="./index.html" />
+        <link rel="stylesheet" href="./index.html" />
     </head>
     <body>
         <header>
 
         </header>
-        <section>
-            <form class="formulario">
-                 <fieldset> 
-                    <div class="formulario-centro"> 
-                        <lebel>Nova transação</label>
-                    </div>        
-                    <br/>
-                    <div class="linha-formulario">
-                        <label class="label-grande" for="=name">Tipo de transação:</label>
-                        <input name="compra" id="compra" placeholder="Compra" />
+        
+        <body>
+            <section class="header">
+                <nav class="d-flex">
+                    <ul class="d-flex">
+                        <li class="logo">
+                            <img src="img/logo.png" alt="">
+                        </li>
+                        <li class="navtext">
+                            <p>Controle Financeiro</p>
+                        </li>
+                        <li id="mobile-menu">
+                            <img src="img/mobile.png" alt="" onclick="abrirSideNav()">
+                        </li>
+                        <li class="menu">
+                            <a class="opcao" id="fecharNavbar" onclick="fecharSideNav()">
+                                <img src="img/sidebar-close-btn.svg" alt="">
+                            </a>
+                            <a href="#" class="opcao" onclick='focusForm()'>Cadastro de transações</a>
+                            <a class="opcao" onclick="clearTransaction()">Limpar dados</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+        
+            <main>
+                <section class="transacao">
+                    <p class="novaTransacao">Nova Transação</p>
+                    <form class="transacaoForm" onsubmit="subimitForm(event)">
+                        <div class="d-flex tipodetransacao">
+                            <label class="formularioLabel label" for="acaoMercadoria d-flex">Tipo de Transação</label>
+                            <select class="selectInput acaoMercadoria" name="acaoMercadoria" form="acaoMercadoria">
+                                <option value="compra">Compra</option>
+                                <option value="venda">Venda</option>
+                            </select>
+                        </div>
+        
+                        <div class="d-flex mercadoria">
+                            <label class="formularioLabel label" for="nomeMercadoria d-flex">Nome da Mercadoria</label>
+                            <input type="text" name="nomeMercadoria" class="textInput nomeMercadoria" placeholder="celular">
+                        </div>
+        
+                        <div class="d-flex valor">
+                            <label class="formularioLabel label" for="valorInput d-flex">Valor</label>
+                            <input type="text" name="valorInput" class="textInput valorInput" placeholder="R$ 0,00" onkeypress="formatMoney(event)">
+                        </div>
+        
+                        <div class="d-flex botao">
+                            <input class="btnSubmit" type="submit" value="Adicionar Transação">
+                        </div>
+        
+                    </form>
+                </section>
+        
+                <hr class="hr-linha">
+        
+                <section class="extrato">
+        
+                    <h1 class="d-flex titulo">Extrato de Transações</h1>
+        
+                    <div class="d-flex tabelaColunas">
+                        <p class="textoTabela colunaMercadoria">Mercadoria</p>
+                        <p class="textoTabela colunaValor">Valor</p>
                     </div>
-                    <br/>
-                    <div class="linha-formulario">
-                         <label class="label-grande" for="name">Nome da mercadoria:</label>
-                         <input name="name" id="name" placeholder="Input" />
+        
+                    <div id="todasTransacoes" style="padding: 0;">
                     </div>
-                    <br/>
-                    <div class="linha-formulario">
-                        <label class="label-grande" for="name">Valor:</label>
-                        <input name="Valor" id="Valor" placeholder="R$ 0,00" />
-                    </div>
-                    <br/>
-                    <div class="formulario-adicionar">
-                         <input type="submit" value="Adicionar transação" />
-                    </div>     
-                 </fieldset>
-           
-            </form>
-        </section>
-    </body>
-</html>
+                </section>
+            </main>
+        
+          
+        </body>
+        
+        </html>
